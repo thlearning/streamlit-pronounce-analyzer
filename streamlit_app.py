@@ -4,7 +4,7 @@ from audiorecorder import audiorecorder
 
 st.title("Pronounce-Analyzer")
 st.write(
-    "using Streamlit Audio Recorder."
+    "using Streamlit Audio Recorder. https://github.com/stefanrmmr/streamlit-audio-recorder"
 )
 
 #########################################
@@ -15,6 +15,10 @@ if wav_audio_data is not None:
     st.audio(wav_audio_data, format='audio/wav')
 
 #########################################
+
+st.write(
+    "using streamlit-audiorecorder. https://github.com/theevann/streamlit-audiorecorder"
+)
 
 audio = audiorecorder("Click to record", "Click to stop recording")
 
