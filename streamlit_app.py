@@ -32,3 +32,6 @@ if len(audio) > 0:
 
     # To get audio properties, use pydub AudioSegment properties:
     st.write(f"Frame rate: {audio.frame_rate}, Frame width: {audio.frame_width}, Duration: {audio.duration_seconds} seconds")
+
+#########################################
+x = librosa.load('/sound/believe.mp3',16000)[0]
