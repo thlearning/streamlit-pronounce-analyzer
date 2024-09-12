@@ -34,4 +34,4 @@ if len(audio) > 0:
     st.write(f"Frame rate: {audio.frame_rate}, Frame width: {audio.frame_width}, Duration: {audio.duration_seconds} seconds")
 
 #########################################
-y, sr = librosa.load('/sound/believe.mp3', sr=16000)
+y, sr = librosa.load('believe.mp3', sr=16000)
