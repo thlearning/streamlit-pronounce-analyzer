@@ -16,6 +16,17 @@ wav_audio_data = st_audiorec()
 
 if wav_audio_data is not None:
     st.audio(wav_audio_data, format='audio/wav')
+    y, sr = librosa.load(wav_audio_data, sr=16000)
+    S = librosa.feature.melspectrogram(y=y, sr=sr, n_mels=128, fmax=8000)
+
+    fig, ax = plt.subplots()
+    S_dB = librosa.power_to_db(S, ref=np.max)
+    img = librosa.display.specshow(S_dB, x_axis='time',
+                             y_axis='mel', sr=sr,
+                             fmax=8000, ax=ax)
+    fig.colorbar(img, ax=ax, format='%+2.0f dB')
+    ax.set(title='Mel-frequency spectrogram')
+    st.pyplot(fig)
 
 #########################################
 
@@ -45,14 +56,3 @@ audio_bytes = audio_file.read()
 st.audio(audio_bytes, format='audio/mpeg')
 #########################################
 
-y, sr = librosa.load('believe.mp3', sr=16000)
-S = librosa.feature.melspectrogram(y=y, sr=sr, n_mels=128, fmax=8000)
-
-fig, ax = plt.subplots()
-S_dB = librosa.power_to_db(S, ref=np.max)
-img = librosa.display.specshow(S_dB, x_axis='time',
-                         y_axis='mel', sr=sr,
-                         fmax=8000, ax=ax)
-fig.colorbar(img, ax=ax, format='%+2.0f dB')
-ax.set(title='Mel-frequency spectrogram')
-st.pyplot(fig)
