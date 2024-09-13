@@ -35,7 +35,7 @@ if len(audio) > 0:
     # To get audio properties, use pydub AudioSegment properties:
     st.write(f"Frame rate: {audio.frame_rate}, Frame width: {audio.frame_width}, Duration: {audio.duration_seconds} seconds")
 
-    # Draw spectrogram!
+    # Draw spectrogram! ################################
     y, sr = librosa.load('audio.wav', sr=16000)
     S = librosa.feature.melspectrogram(y=y, sr=sr, n_mels=128, fmax=8000)
 
