@@ -46,3 +46,4 @@ img = librosa.display.specshow(S_dB, x_axis='time',
                          fmax=8000, ax=ax)
 fig.colorbar(img, ax=ax, format='%+2.0f dB')
 ax.set(title='Mel-frequency spectrogram')
+st.pyplot(fig)
