@@ -3,3 +3,4 @@ streamlit-audiorec
 streamlit-audiorecorder
 librosa
 matplotlib
+numpy
