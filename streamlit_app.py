@@ -36,6 +36,9 @@ if len(audio) > 0:
     st.write(f"Frame rate: {audio.frame_rate}, Frame width: {audio.frame_width}, Duration: {audio.duration_seconds} seconds")
 
 #########################################
+st.write(
+    "Audio"
+)
 audio_file = open('believe.mp3', 'rb')
 audio_bytes = audio_file.read()
 
