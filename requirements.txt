@@ -2,3 +2,4 @@ streamlit
 streamlit-audiorec
 streamlit-audiorecorder
 librosa
+matplotlib

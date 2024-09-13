@@ -2,6 +2,7 @@ import streamlit as st
 from st_audiorec import st_audiorec
 from audiorecorder import audiorecorder
 import librosa
+import matplotlib.pyplot as plt
 
 st.title("Pronounce-Analyzer")
 st.write(
