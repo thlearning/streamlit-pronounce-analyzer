@@ -16,7 +16,7 @@ wav_audio_data = st_audiorec()
 
 if wav_audio_data is not None:
     st.audio(wav_audio_data, format='audio/wav')
-    y, sr = librosa.load(wav_audio_data, sr=16000)
+    y, sr = librosa.load('sound/believe.mp3', sr=16000)
     S = librosa.feature.melspectrogram(y=y, sr=sr, n_mels=128, fmax=8000)
 
     fig, ax = plt.subplots()
