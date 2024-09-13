@@ -36,6 +36,12 @@ if len(audio) > 0:
     st.write(f"Frame rate: {audio.frame_rate}, Frame width: {audio.frame_width}, Duration: {audio.duration_seconds} seconds")
 
 #########################################
+audio_file = open('believe.mp3', 'rb')
+audio_bytes = audio_file.read()
+
+st.audio(audio_bytes, format='audio/mpeg')
+#########################################
+
 y, sr = librosa.load('believe.mp3', sr=16000)
 S = librosa.feature.melspectrogram(y=y, sr=sr, n_mels=128, fmax=8000)
 
