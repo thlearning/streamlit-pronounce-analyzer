@@ -6,11 +6,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 st.title("Pronounce-Analyzer")
-st.write(
-    "using Streamlit Audio Recorder. https://github.com/stefanrmmr/streamlit-audio-recorder"
-)
 
 #########################################
+#st.write(
+#    "using Streamlit Audio Recorder. https://github.com/stefanrmmr/streamlit-audio-recorder"
+#)
 #wav_audio_data = st_audiorec()
 #
 #if wav_audio_data is not None:
