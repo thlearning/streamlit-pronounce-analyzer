@@ -34,8 +34,8 @@ if len(audio) > 0:
     st.write(f"Frame rate: {audio.frame_rate}, Frame width: {audio.frame_width}, Duration: {audio.duration_seconds} seconds")
 
     # Draw spectrogram! ################################
-    y, sr = librosa.load('audio.wav', sr=32000)
-    S = librosa.feature.melspectrogram(y=y, sr=sr, n_mels=512, fmax=6000)
+    y, sr = librosa.load('audio.wav', sr=64000)
+    S = librosa.feature.melspectrogram(y=y, sr=sr, n_mels=256, fmax=6000)
 
     fig, ax = plt.subplots()
     S_dB = librosa.power_to_db(S, ref=np.max)
@@ -56,8 +56,8 @@ audio_bytes = audio_file.read()
 st.audio(audio_bytes, format='audio/mpeg')
 
 # Draw spectrogram! ################################
-y, sr = librosa.load('believe.mp3', sr=32000)
-S = librosa.feature.melspectrogram(y=y, sr=sr, n_mels=512, fmax=6000)
+y, sr = librosa.load('believe.mp3', sr=64000)
+S = librosa.feature.melspectrogram(y=y, sr=sr, n_mels=256, fmax=6000)
 
 fig, ax = plt.subplots()
 S_dB = librosa.power_to_db(S, ref=np.max)
