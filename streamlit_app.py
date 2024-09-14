@@ -34,16 +34,15 @@ if len(audio) > 0:
     st.write(f"Frame rate: {audio.frame_rate}, Frame width: {audio.frame_width}, Duration: {audio.duration_seconds} seconds")
 
     # Draw spectrogram! ################################
-    y, sr = librosa.load('audio.wav', sr=32000)
-    S = librosa.feature.melspectrogram(y=y, sr=sr, n_mels=128, fmax=6000)
+    y, sr = librosa.load('audio.wav', sr=16000)
+    hop_length = 32
+    D = np.abs(librosa.stft(y, n_fft=1024, hop_length=hop_length))
+    D_db = librosa.amplitude_to_db(D, ref=np.max)
 
     fig, ax = plt.subplots()
-    S_dB = librosa.power_to_db(S, ref=np.max)
-    img = librosa.display.specshow(S_dB, x_axis='time',
-                             y_axis='mel', sr=sr,
-                             fmax=8000, ax=ax)
+    img = librosa.display.specshow(D_db, x_axis='time', y_axis='log', sr=sr, ax=ax)
     fig.colorbar(img, ax=ax, format='%+2.0f dB')
-    ax.set(title='Mel-frequency spectrogram')
+    ax.set(title='Spectrogram')
     st.pyplot(fig)
 
 #########################################
@@ -69,11 +68,11 @@ S_dB = librosa.power_to_db(S, ref=np.max)
 hop_length = 32
 D = np.abs(librosa.stft(y, n_fft=1024, hop_length=hop_length))
 D_db = librosa.amplitude_to_db(D, ref=np.max)
-img = librosa.display.specshow(D_db, x_axis='time', y_axis='mel', sr=sr, ax=ax)
+img = librosa.display.specshow(D_db, x_axis='time', y_axis='log', sr=sr, ax=ax)
 #############
 
 fig.colorbar(img, ax=ax, format='%+2.0f dB')
-ax.set(title='Mel-frequency spectrogram')
+ax.set(title='Spectrogram')
 st.pyplot(fig)
 #########################################
 
