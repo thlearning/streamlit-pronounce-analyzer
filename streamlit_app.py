@@ -61,7 +61,7 @@ S = librosa.feature.melspectrogram(y=y, sr=sr, n_mels=128, fmax=6000)
 
 fig, ax = plt.subplots()
 S_dB = librosa.power_to_db(S, ref=np.max)
-img = librosa.display.specshow(S, x_axis='time', y_axis='mel', sr=sr, fmax=6000, ax=ax)
+#img = librosa.display.specshow(S_dB, x_axis='time', y_axis='mel', sr=sr, fmax=6000, ax=ax)
 
 hop_length = 1024
 D = librosa.amplitude_to_db(np.abs(librosa.stft(y)), ref=np.max)
