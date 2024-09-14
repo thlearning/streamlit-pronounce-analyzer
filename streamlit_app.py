@@ -63,7 +63,7 @@ S_dB = librosa.power_to_db(S, ref=np.max)
 fig, ax = plt.subplots()
 #img = librosa.display.specshow(S_dB, x_axis='time', y_axis='mel', sr=sr, fmax=6000, ax=ax)
 
-hop_length = 512
+hop_length = 1024
 D = librosa.amplitude_to_db(np.abs(librosa.stft(y, n_fft=1024, hop_length=hop_length)), ref=np.max)
 img = librosa.display.specshow(D, x_axis='time', y_axis='log', hop_length=hop_length, sr=sr, ax=ax)
 
