@@ -65,7 +65,7 @@ S_dB = librosa.power_to_db(S, ref=np.max)
 
 hop_length = 1024
 D = librosa.amplitude_to_db(np.abs(librosa.stft(y)), ref=np.max)
-librosa.display.specshow(D, y_axis='log', sr=sr, x_axis='time', ax=ax)
+librosa.display.specshow(D, y_axis='mel', sr=sr, x_axis='time', ax=ax)
 
 fig.colorbar(img, ax=ax, format='%+2.0f dB')
 ax.set(title='Mel-frequency spectrogram')
