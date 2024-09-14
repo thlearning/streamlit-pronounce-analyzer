@@ -60,17 +60,16 @@ y, sr = librosa.load('believe.mp3', sr=16000)
 
 fig, ax = plt.subplots()
 
-#############
+#### melspectrogram #########
 S = librosa.feature.melspectrogram(y=y, sr=sr, n_fft=1024, hop_length=32, n_mels=256, fmax=8000)
 S_dB = librosa.power_to_db(S, ref=np.max)
-#img = librosa.display.specshow(S_dB, x_axis='time', y_axis='log', sr=sr, ax=ax)
+img = librosa.display.specshow(S_dB, x_axis='time', y_axis='log', sr=sr, ax=ax)
 
-########
-
+#### stft ####
 hop_length = 32
 D = np.abs(librosa.stft(y, n_fft=1024, hop_length=hop_length))
 D_db = librosa.amplitude_to_db(D, ref=np.max)
-img = librosa.display.specshow(D_db, x_axis='time', y_axis='log', sr=sr, ax=ax)
+#img = librosa.display.specshow(D_db, x_axis='time', y_axis='log', sr=sr, ax=ax)
 #############
 
 fig.colorbar(img, ax=ax, format='%+2.0f dB')
