@@ -3,7 +3,9 @@ import streamlit as st
 from audiorecorder import audiorecorder
 import librosa
 import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
 import numpy as np
+import streamlit.components.v1 as components
 
 st.title("Pronounce-Analyzer")
 
