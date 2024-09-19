@@ -108,13 +108,13 @@ z2 = g * t**2 / 2 + v02 * t
 
 line = ax2.plot(0,0)[0] #초기값
 ax2.set(xlim=[0, 3], ylim=[-4, 10], xlabel='Time [s]', ylabel='Z [m]')
-#ax2.legend()
+ax2.legend()
 
 
 def update(frame):
     # update the line plot:
     line.set_xdata(t[:frame])
-    line.set_ydata(z2[:frame])
+    line.set_ydata(np.linspace(0, 3, 40))
     return (line)
 
 
