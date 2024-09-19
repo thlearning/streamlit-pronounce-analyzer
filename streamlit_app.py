@@ -107,7 +107,7 @@ v02 = 5
 z2 = g * t**2 / 2 + v02 * t
 
 line = ax2.plot(0,0)[0] #초기값
-line.set_ydata(np.linspace(0, 1, 10))
+line.set_ydata(1)
 ax2.set(xlim=[0, 3], ylim=[-4, 10], xlabel='Time [s]', ylabel='Z [m]')
 ax2.legend()
 
