@@ -106,7 +106,7 @@ v0 = 12
 v02 = 5
 z2 = g * t**2 / 2 + v02 * t
 
-line = ax2.plot(t[0], z2[0], label=f'v0 = {v02} m/s')[0]
+line = ax2.plot(t[0], np.linspace(0, 3, 40), label=f'v0 = {v02} m/s')[0]
 ax2.set(xlim=[0, 3], ylim=[-4, 10], xlabel='Time [s]', ylabel='Z [m]')
 ax2.legend()
 
@@ -118,7 +118,7 @@ def update(frame):
     return (line)
 
 
-animation = FuncAnimation(fig2, update, frames=40, interval=100)
+animation = FuncAnimation(fig2, update, frames=40, interval=20)
 
 animation.save(filename='video.mp4', writer='ffmpeg')
 
