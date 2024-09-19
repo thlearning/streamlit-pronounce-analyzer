@@ -80,3 +80,19 @@ fig.colorbar(img, ax=ax, format='%+2.0f dB')
 st.pyplot(fig)
 #########################################
 
+# Animation #############################
+fig2, ax2 = plt.subplots()
+line = plt.plot([], [], lw=2)
+
+def update_frame(t, line):
+    t = np.arange(0,t,0.1)
+    y = np.sin(t)
+    line.set_data(t, y)
+    return line
+
+animation = FuncAnimation(
+        fig, update_frame, frames=np.arange(1,100,0.1), fargs=(line), interval=100, blit=False
+)
+
+with st.spinner("Preparing animation..."):
+        components.html(animation.to_jshtml(), height=1000)
