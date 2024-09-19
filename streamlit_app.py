@@ -99,7 +99,7 @@ st.pyplot(fig)
 
 # Animation2 #############################
 fig2, ax2 = plt.subplots()
-t = np.linspace(0, 2, 10)
+t = np.linspace(0, 3, 40)
 g = -9.81
 v0 = 12
 z = g * t**2 / 2 + v0 * t
@@ -126,7 +126,6 @@ def update(frame):
     return (scat, line2)
 
 
-animation = FuncAnimation(fig2, update, frames=10, interval=2)
+animation = FuncAnimation(fig2, update, frames=40, interval=30)
 
-with st.spinner("Preparing animation..."):
-        components.html(animation.to_jshtml(), height=1000)
+animation.save(filename="video.mp4", writer="ffmpeg")
