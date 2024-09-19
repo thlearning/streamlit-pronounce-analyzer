@@ -114,7 +114,11 @@ def animate(i,vl,period):
 animation = FuncAnimation(fig, animate, frames=int(duration/(refreshPeriod/1000)), fargs=(vl,refreshPeriod), interval=refreshPeriod)
 animation.save(filename='video.mp4', writer='ffmpeg')
 
-video_file = open('video.mp4', 'rb')
+audio = ffmpeg.input('believe.mp3')
+video = ffmpeg.input('video.mp4')
+ffmpeg.concat(video, audio, v=1, a=1).output('outputvideo.mp4').run(overwrite_output=True)
+
+video_file = open('outputvideo.mp4', 'rb')
 video_bytes = video_file.read()
 
 st.video(video_bytes)
