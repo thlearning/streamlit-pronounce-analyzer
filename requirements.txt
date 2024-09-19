@@ -4,3 +4,4 @@ streamlit-audiorecorder
 librosa
 matplotlib
 numpy
+ffmpeg-python
