@@ -98,30 +98,19 @@ st.pyplot(fig)
 #        components.html(animation.to_jshtml(), height=1000)
 
 # Animation2 #############################
-fig2, ax2 = plt.subplots()
-t = np.linspace(0, 3, 40)
-g = -9.81
-v0 = 12
+duration = 2 # in sec
+refreshPeriod = 100 # in ms
 
-v02 = 5
-z2 = g * t**2 / 2 + v02 * t
-vz = np.linspace(0, 3, 40)
+fig2,ax2 = plt.subplots()
+vl = ax2.axvline(0, ls='-', color='r', lw=1, zorder=10)
+ax2.set_xlim(0,duration)
 
-line = ax2.plot(0,0)[0] #초기값
-ax2.set(xlim=[0, 3], ylim=[-4, 10], xlabel='Time [s]', ylabel='Z [m]')
-ax2.legend()
+def animate(i,vl,period):
+    t = i*period / 1000
+    vl.set_xdata([t,t])
+    return vl,
 
-
-def update(i):
-    # update the line plot:
-#    line.set_xdata(t[:i])
-#    line.set_ydata(z2[:i])
-    line.set_data(t[:i],vz)
-    return (line)
-
-
-animation = FuncAnimation(fig2, update, frames=40, interval=20)
-
+animation = FuncAnimation(fig2, animate, frames=int(duration/(refreshPeriod/1000)), fargs=(vl,refreshPeriod), interval=refreshPeriod)
 animation.save(filename='video.mp4', writer='ffmpeg')
 
 video_file = open('video.mp4', 'rb')
