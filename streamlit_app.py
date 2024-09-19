@@ -98,19 +98,20 @@ st.pyplot(fig)
 #        components.html(animation.to_jshtml(), height=1000)
 
 # Animation2 #############################
+# https://stackoverflow.com/questions/61808191/is-there-an-easy-way-to-animate-a-scrolling-vertical-line-in-matplotlib
 duration = 2 # in sec
 refreshPeriod = 100 # in ms
 
 fig2,ax2 = plt.subplots()
-vl = ax2.axvline(0, ls='-', color='r', lw=1, zorder=10)
-ax2.set_xlim(0,duration)
+vl = ax.axvline(0, ls='-', color='r', lw=1, zorder=10)
+ax.set_xlim(0,duration)
 
 def animate(i,vl,period):
     t = i*period / 1000
     vl.set_xdata([t,t])
     return vl,
 
-animation = FuncAnimation(fig2, animate, frames=int(duration/(refreshPeriod/1000)), fargs=(vl,refreshPeriod), interval=refreshPeriod)
+animation = FuncAnimation(fig, animate, frames=int(duration/(refreshPeriod/1000)), fargs=(vl,refreshPeriod), interval=refreshPeriod)
 animation.save(filename='video.mp4', writer='ffmpeg')
 
 video_file = open('video.mp4', 'rb')
