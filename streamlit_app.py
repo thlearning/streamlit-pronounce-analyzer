@@ -126,7 +126,7 @@ def update(frame):
     return (scat, line2)
 
 
-animation = FuncAnimation(fig=fig2, func=update, frames=40, interval=30)
+animation = FuncAnimation(fig2, update, frames=40, interval=30)
 
 with st.spinner("Preparing animation..."):
         components.html(animation.to_jshtml(), height=1000)
