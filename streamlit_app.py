@@ -102,7 +102,6 @@ fig2, ax2 = plt.subplots()
 t = np.linspace(0, 3, 40)
 g = -9.81
 v0 = 12
-z = g * t**2 / 2 + v0 * t
 
 v02 = 5
 z2 = g * t**2 / 2 + v02 * t
