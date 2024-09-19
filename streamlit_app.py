@@ -114,7 +114,7 @@ ax2.legend()
 def update(frame):
     # update the line plot:
     line.set_xdata(t[:frame])
-    line.set_ydata(z2[:frame])
+#    line.set_ydata(z2[:frame])
     return (line)
 
 
