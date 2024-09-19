@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 import numpy as np
 import streamlit.components.v1 as components
+import ffmpeg
 
 st.title("Pronounce-Analyzer")
 
