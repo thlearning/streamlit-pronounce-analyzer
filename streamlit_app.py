@@ -91,7 +91,7 @@ def update_frame(t, line):
     return line
 
 animation = FuncAnimation(
-        fig, update_frame, frames=np.arange(1,100,0.1), fargs=(line), interval=100, blit=False
+        fig2, update_frame, frames=np.arange(1,100,0.1), fargs=(line), interval=100, blit=False
 )
 
 with st.spinner("Preparing animation..."):
