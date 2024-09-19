@@ -128,4 +128,4 @@ def update(frame):
 
 animation = FuncAnimation(fig2, update, frames=40, interval=30)
 
-animation.save(filename="video.mp4", writer="ffmpeg")
+animation.save(filename='video.mp4', writer='ffmpeg')
