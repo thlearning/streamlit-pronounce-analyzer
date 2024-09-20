@@ -48,8 +48,8 @@ if len(audio) > 0:
     D_db = librosa.amplitude_to_db(D, ref=np.max)
     
     img = librosa.display.specshow(D_db, x_axis='time', y_axis='log', hop_length=hop_length, sr=sr, ax=ax[1])
-    ax.set(title='Spectrogram')
-    #fig.colorbar(img, ax=ax, format='%+2.0f dB')
+    #ax[1].set(title='Spectrogram')
+    #fig.colorbar(img, ax=ax[1], format='%+2.0f dB')
     
     st.pyplot(fig)
 
