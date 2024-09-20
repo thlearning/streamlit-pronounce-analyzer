@@ -82,29 +82,12 @@ st.pyplot(fig)
 #########################################
 
 # Animation #############################
-#fig2, ax2 = plt.subplots()
-#line = plt.plot([], [], lw=2)
-
-#def update_frame(t, line):
-#    t = np.arange(0,t,0.1)
-#    y = np.sin(t)
-#    line.set_data(t, y)
-#    return line
-
-#animation = FuncAnimation(
-#        fig2, update_frame, frames=np.arange(1,10,1), fargs=(line), interval=100, blit=False
-#)
-
-#with st.spinner("Preparing animation..."):
-#        components.html(animation.to_jshtml(), height=1000)
-
-# Animation2 #############################
 # https://stackoverflow.com/questions/61808191/is-there-an-easy-way-to-animate-a-scrolling-vertical-line-in-matplotlib
 duration = 0.54 # in sec
 refreshPeriod = 20 # in ms
 
 # fig2,ax2 = plt.subplots()
-vl = ax.axvline(0, ls='-', color='r', lw=1, zorder=10)
+vl = ax.axvline(0, ls='-', color='w', lw=2, zorder=10)
 ax.set_xlim(0,duration)
 
 def animate(i,vl,period):
