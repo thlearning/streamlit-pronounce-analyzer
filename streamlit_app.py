@@ -72,7 +72,7 @@ fig, ax = plt.subplots(nrows=2, ncols=1, sharex=True)
 hop_length = 32
 D = np.abs(librosa.stft(y, n_fft=1024, hop_length=hop_length))
 D_db = librosa.amplitude_to_db(D, ref=np.max)
-img = librosa.display.specshow(D_db, x_axis='time', y_axis='log', hop_length=hop_length, sr=sr, ax=ax)
+img = librosa.display.specshow(D_db, x_axis='time', y_axis='log', hop_length=hop_length, sr=sr, ax=ax[1])
 #############
 
 ax.set(title='Spectrogram')
