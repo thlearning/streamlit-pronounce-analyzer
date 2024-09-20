@@ -75,7 +75,7 @@ D_db = librosa.amplitude_to_db(D, ref=np.max)
 img = librosa.display.specshow(D_db, x_axis='time', y_axis='log', hop_length=hop_length, sr=sr, ax=ax[1])
 #############
 
-ax.set(title='Spectrogram')
+ax[1].set(title='Spectrogram')
 fig.colorbar(img, ax=ax, format='%+2.0f dB')
 
 st.pyplot(fig)
@@ -87,8 +87,8 @@ duration = 0.54 # in sec
 refreshPeriod = 20 # in ms
 
 # fig2,ax2 = plt.subplots()
-vl = ax.axvline(0, ls='-', color='w', lw=2, zorder=10)
-ax.set_xlim(0,duration)
+vl = ax[1].axvline(0, ls='-', color='w', lw=2, zorder=10)
+ax[1].set_xlim(0,duration)
 
 def animate(i,vl,period):
     t = i*period / 1000
