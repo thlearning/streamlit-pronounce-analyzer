@@ -62,7 +62,8 @@ y, sr = librosa.load('believe.mp3', sr=16000)
 fig, ax = plt.subplots(nrows=2, ncols=1, sharex=True)
 
 # Draw waveform ################################
-librosa.display.waveshow(y, sr=sr, ax=ax[0])
+#librosa.display.waveshow(y, sr=sr, ax=ax[0])
+librosa.display.waveplot(y, sr=sr, ax=ax[0])
 
 # Draw spectrogram ################################
 
