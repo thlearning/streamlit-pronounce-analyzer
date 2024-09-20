@@ -11,49 +11,6 @@ import ffmpeg
 st.title("Pronounce-Analyzer")
 
 #########################################
-#st.write(
-#    "using Streamlit Audio Recorder. https://github.com/stefanrmmr/streamlit-audio-recorder"
-#)
-#wav_audio_data = st_audiorec()
-#
-#if wav_audio_data is not None:
-#    st.audio(wav_audio_data, format='audio/wav')
-#########################################
-
-st.write(
-    "using streamlit-audiorecorder. https://github.com/theevann/streamlit-audiorecorder"
-)
-
-audio = audiorecorder("Click to record", "Click to stop recording")
-
-if len(audio) > 0:
-    # To play audio in frontend:
-    st.audio(audio.export().read())  
-
-    # To save audio to a file, use pydub export method:
-    audio.export("audio.wav", format="wav")
-
-    # To get audio properties, use pydub AudioSegment properties:
-    st.write(f"Frame rate: {audio.frame_rate}, Frame width: {audio.frame_width}, Duration: {audio.duration_seconds} seconds")
-
-    y, sr = librosa.load('audio.wav', sr=16000)
-    fig, ax = plt.subplots(nrows=2, ncols=1, sharex=True)
-
-    # Draw waveform ################################
-    librosa.display.waveshow(y, sr=sr, ax=ax[0])
-
-    # Draw spectrogram #############################    
-    hop_length = 32
-    D = np.abs(librosa.stft(y, n_fft=1024, hop_length=hop_length))
-    D_db = librosa.amplitude_to_db(D, ref=np.max)
-    
-    img = librosa.display.specshow(D_db, x_axis='time', y_axis='log', hop_length=hop_length, sr=sr, ax=ax[1])
-    #ax[1].set(title='Spectrogram')
-    #fig.colorbar(img, ax=ax[1], format='%+2.0f dB')
-    
-    st.pyplot(fig)
-
-#########################################
 st.write(
     "Reference audio"
 )
@@ -113,3 +70,48 @@ def animate(i,vl,period):
 #video_bytes = video_file.read()
 
 #st.video(video_bytes)
+
+# Recording #############################
+#########################################
+#st.write(
+#    "using Streamlit Audio Recorder. https://github.com/stefanrmmr/streamlit-audio-recorder"
+#)
+#wav_audio_data = st_audiorec()
+#
+#if wav_audio_data is not None:
+#    st.audio(wav_audio_data, format='audio/wav')
+#########################################
+
+st.write(
+    "using streamlit-audiorecorder. https://github.com/theevann/streamlit-audiorecorder"
+)
+
+audio = audiorecorder("Click to record", "Click to stop recording")
+
+if len(audio) > 0:
+    # To play audio in frontend:
+    st.audio(audio.export().read())  
+
+    # To save audio to a file, use pydub export method:
+    audio.export("audio.wav", format="wav")
+
+    # To get audio properties, use pydub AudioSegment properties:
+    st.write(f"Frame rate: {audio.frame_rate}, Frame width: {audio.frame_width}, Duration: {audio.duration_seconds} seconds")
+
+    y, sr = librosa.load('audio.wav', sr=16000)
+    fig, ax = plt.subplots(nrows=2, ncols=1, sharex=True)
+
+    # Draw waveform ################################
+    librosa.display.waveshow(y, sr=sr, ax=ax[0])
+
+    # Draw spectrogram #############################    
+    hop_length = 32
+    D = np.abs(librosa.stft(y, n_fft=1024, hop_length=hop_length))
+    D_db = librosa.amplitude_to_db(D, ref=np.max)
+    
+    img = librosa.display.specshow(D_db, x_axis='time', y_axis='log', hop_length=hop_length, sr=sr, ax=ax[1])
+    #ax[1].set(title='Spectrogram')
+    #fig.colorbar(img, ax=ax[1], format='%+2.0f dB')
+    
+    st.pyplot(fig)
+
