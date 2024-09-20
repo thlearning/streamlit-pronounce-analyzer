@@ -76,7 +76,7 @@ img = librosa.display.specshow(D_db, x_axis='time', y_axis='log', hop_length=hop
 #############
 
 ax[1].set(title='Spectrogram')
-fig.colorbar(img, ax=ax, format='%+2.0f dB')
+fig.colorbar(img, ax=ax[1], format='%+2.0f dB')
 
 st.pyplot(fig)
 #########################################
