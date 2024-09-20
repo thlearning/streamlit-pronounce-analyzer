@@ -58,10 +58,10 @@ audio_bytes = audio_file.read()
 
 st.audio(audio_bytes, format='audio/mpeg')
 
-# Draw spectrogram! ################################
+# Draw spectrogram ################################
 y, sr = librosa.load('believe.mp3', sr=16000)
 
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(nrows=2, ncols=1, sharex=True)
 
 #### melspectrogram #########
 #S = librosa.feature.melspectrogram(y=y, sr=sr, n_fft=1024, hop_length=32, n_mels=256, fmax=8000)
