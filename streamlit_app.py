@@ -20,7 +20,7 @@ audio_bytes = audio_file.read()
 st.audio(audio_bytes, format='audio/mpeg')
 
 y, sr = librosa.load('believe.mp3', sr=16000)
-fig, ax = plt.subplots(nrows=2, ncols=1, sharex=True)
+fig, ax = plt.subplots(nrows=2, ncols=1, sharex=True, gridspec_kw={'height_ratios': [1, 2]})
 
 # Draw waveform ################################
 librosa.display.waveshow(y, sr=sr, ax=ax[0])
