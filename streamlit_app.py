@@ -99,7 +99,7 @@ if len(audio) > 0:
     st.write(f"Frame rate: {audio.frame_rate}, Frame width: {audio.frame_width}, Duration: {audio.duration_seconds} seconds")
 
     y, sr = librosa.load('audio.wav', sr=16000)
-    fig, ax = plt.subplots(nrows=2, ncols=1, sharex=True)
+    fig, ax = plt.subplots(nrows=2, ncols=1, sharex=True, gridspec_kw={'height_ratios': [1, 2.5]})
 
     # Draw waveform ################################
     librosa.display.waveshow(y, sr=sr, ax=ax[0])
